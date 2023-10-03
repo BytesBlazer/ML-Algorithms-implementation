@@ -19,12 +19,9 @@ class KNN:
         distances = [euclidean_distance(x1, x2) for x2 in self.x_train]
 
         k_indices = np.argsort(distances)[:self.k]
-        k_labels = [self.y_labels[i] for i  in k_indices]
+        k_labels = [self.y_train[i] for i  in k_indices]
 
         majority = Counter(k_labels).most_common()
 
-        return majority
-
-
-
+        return majority[0][0]
 
